@@ -24,3 +24,46 @@ def test_haversine_one_degree_lat():
     # 1 度緯度 ≈ 111 km
     d = haversine_km(23.0, 120.0, 24.0, 120.0)
     assert 110 < d < 112
+
+
+import geopandas as gpd
+from shapely.geometry import Polygon, MultiPolygon
+
+from lib.geo import drive_minutes_from_km, safe_centroid_latlon
+
+
+def test_drive_minutes_30kmh():
+    # 30 km @ 30 km/h = 60 分鐘
+    assert drive_minutes_from_km(30.0, speed_kmh=30.0) == 60.0
+
+
+def test_drive_minutes_zero_distance():
+    assert drive_minutes_from_km(0.0, speed_kmh=30.0) == 0.0
+
+
+def test_drive_minutes_default_speed_is_30():
+    assert drive_minutes_from_km(15.0) == 30.0
+
+
+def test_safe_centroid_returns_point_inside_polygon():
+    # 簡單正方形：質心應在裡面
+    sq = Polygon([(120.0, 23.0), (120.1, 23.0), (120.1, 23.1), (120.0, 23.1)])
+    gdf = gpd.GeoDataFrame({"id": [1]}, geometry=[sq], crs="EPSG:4326")
+    lat, lon = safe_centroid_latlon(gdf.iloc[0].geometry, source_crs="EPSG:4326")
+    assert 23.0 < lat < 23.1
+    assert 120.0 < lon < 120.1
+
+
+def test_safe_centroid_falls_back_for_donut_when_centroid_outside():
+    # C 形多邊形（質心會落在缺口外）— representative_point 應落在實際範圍內
+    c_shape = Polygon(
+        [(0, 0), (10, 0), (10, 10), (0, 10), (0, 9), (9, 9), (9, 1), (0, 1)]
+    )
+    gdf = gpd.GeoDataFrame({"id": [1]}, geometry=[c_shape], crs="EPSG:3826")
+    lat, lon = safe_centroid_latlon(c_shape, source_crs="EPSG:3826")
+    # representative_point 保證落在 polygon 內
+    from shapely.geometry import Point
+    import pyproj
+    transformer = pyproj.Transformer.from_crs("EPSG:4326", "EPSG:3826", always_xy=True)
+    x, y = transformer.transform(lon, lat)
+    assert c_shape.contains(Point(x, y))
