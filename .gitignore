@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_meta
+
+# Data (大檔 + 中間檔不入 repo)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Output (產出物不入 repo，可重算)
+output/maps/*
+output/data/*
+!output/maps/.gitkeep
+!output/data/.gitkeep
+
+# macOS
+.DS_Store
