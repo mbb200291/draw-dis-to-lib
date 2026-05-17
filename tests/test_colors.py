@@ -1,6 +1,14 @@
 import pytest
 
-from lib.colors import BINS_MINUTES, COLORS_HEX, minutes_to_color, minutes_to_bin_label
+from lib.colors import (
+    BINS_MINUTES,
+    COLORS_HEX,
+    DISTANCE,
+    DRIVING,
+    WALKING,
+    minutes_to_color,
+    minutes_to_bin_label,
+)
 
 
 def test_bins_and_colors_align():
@@ -34,3 +42,40 @@ def test_minutes_to_bin_label():
     assert minutes_to_bin_label(0.0) == "0–5"
     assert minutes_to_bin_label(7.5) == "5–10"
     assert minutes_to_bin_label(60.0) == "30+"
+
+
+# === New: per-scale tests ===
+
+@pytest.mark.parametrize(
+    "scale,n_bins",
+    [(DRIVING, 6), (WALKING, 6), (DISTANCE, 6)],
+)
+def test_scale_has_consistent_bin_count(scale, n_bins):
+    assert len(scale.cuts) + 1 == n_bins
+    assert len(scale.colors) == n_bins
+    assert len(scale.labels) == n_bins
+
+
+def test_walking_scale_buckets():
+    # walking is on a much wider time scale than driving
+    assert WALKING.label(10) == "0–15"
+    assert WALKING.label(25) == "15–30"
+    assert WALKING.label(45) == "30–60"
+    assert WALKING.label(75) == "60–90"
+    assert WALKING.label(100) == "90–120"
+    assert WALKING.label(180) == "120+"
+
+
+def test_distance_scale_buckets():
+    assert DISTANCE.label(0.5) == "0–2"
+    assert DISTANCE.label(3) == "2–5"
+    assert DISTANCE.label(7) == "5–10"
+    assert DISTANCE.label(12) == "10–15"
+    assert DISTANCE.label(17) == "15–20"
+    assert DISTANCE.label(25) == "20+"
+
+
+def test_driving_backward_compat_matches_scale():
+    """Module-level minutes_to_color must equal DRIVING.color()."""
+    for v in (0, 4.9, 5, 12, 25, 60):
+        assert minutes_to_color(v) == DRIVING.color(v)
