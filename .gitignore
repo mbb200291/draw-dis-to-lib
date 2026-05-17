@@ -14,8 +14,10 @@ env/
 # Data (大檔 + 中間檔不入 repo)
 data/raw/*
 data/processed/*
+data/cache/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/cache/.gitkeep
 
 # Output (產出物不入 repo，可重算)
 output/maps/*

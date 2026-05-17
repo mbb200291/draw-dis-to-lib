@@ -1,314 +1,51 @@
 {
-  "_note": "Tainan municipal libraries. Compiled from plisnet.nlpi.edu.tw (national public library directory) + tnpl.tn.edu.tw (Tainan municipal library system). Coordinates geocoded via Nominatim (OpenStreetMap) with strict district-boundary check; when Nominatim result lies outside the library's district polygon, falls back to the district centroid.",
-  "_source": "https://plisnet.nlpi.edu.tw/Frontend/LibraryFamily/LibraryList?CityID=20 + https://www.tnpl.tn.edu.tw/Page/EachPavilion.aspx",
+  "_note": "Tainan municipal libraries. Address-only — coordinates are geocoded at runtime by lib/geocoder (TGOS Lite) and cached in data/cache/geocode.csv. Optional `lat`/`lon` fields here act as manual overrides if TGOS can't resolve a specific address.",
+  "_source": "User-verified list (2026-05-17), cross-checked against tnpl.tn.edu.tw and plisnet.nlpi.edu.tw.",
   "libraries": [
-    {
-      "name": "臺南市立圖書館新總館",
-      "district": "永康區",
-      "address": "臺南市永康區康橋大道255號",
-      "lat": 23.0245,
-      "lon": 120.2377
-    },
-    {
-      "name": "臺南市立圖書館公園總館",
-      "district": "北區",
-      "address": "臺南市北區公園北路3號",
-      "lat": 23.0037,
-      "lon": 120.2122
-    },
-    {
-      "name": "新營文化中心圖書館",
-      "district": "新營區",
-      "address": "臺南市新營區中正路23號",
-      "lat": 23.3083,
-      "lon": 120.3151
-    },
-    {
-      "name": "新營區圖書館",
-      "district": "新營區",
-      "address": "臺南市新營區太北里45-8號",
-      "lat": 23.2994,
-      "lon": 120.3163
-    },
-    {
-      "name": "鹽水區圖書館",
-      "district": "鹽水區",
-      "address": "臺南市鹽水區月津路14-1號",
-      "lat": 23.3251,
-      "lon": 120.2759
-    },
-    {
-      "name": "白河區圖書館",
-      "district": "白河區",
-      "address": "臺南市白河區大德路1號",
-      "lat": 23.3532,
-      "lon": 120.4171
-    },
-    {
-      "name": "麻豆區圖書館",
-      "district": "麻豆區",
-      "address": "臺南市麻豆區興國路11號",
-      "lat": 23.217,
-      "lon": 120.2241
-    },
-    {
-      "name": "佳里區圖書館",
-      "district": "佳里區",
-      "address": "臺南市佳里區安北路118號",
-      "lat": 23.1689,
-      "lon": 120.1773
-    },
-    {
-      "name": "新化區圖書館",
-      "district": "新化區",
-      "address": "臺南市新化區中山路132號",
-      "lat": 23.0382,
-      "lon": 120.3104
-    },
-    {
-      "name": "善化區圖書館",
-      "district": "善化區",
-      "address": "臺南市善化區中山路377號",
-      "lat": 23.132,
-      "lon": 120.2916
-    },
-    {
-      "name": "學甲區圖書館",
-      "district": "學甲區",
-      "address": "臺南市學甲區建國路38號",
-      "lat": 23.2303,
-      "lon": 120.1819
-    },
-    {
-      "name": "柳營區圖書館",
-      "district": "柳營區",
-      "address": "臺南市柳營區柳營路二段59號",
-      "lat": 23.269,
-      "lon": 120.355
-    },
-    {
-      "name": "後壁區圖書館",
-      "district": "後壁區",
-      "address": "臺南市後壁區後壁里131號",
-      "lat": 23.3662,
-      "lon": 120.3624
-    },
-    {
-      "name": "東山區圖書館",
-      "district": "東山區",
-      "address": "臺南市東山區東山里225-4號",
-      "lat": 23.3261,
-      "lon": 120.4042
-    },
-    {
-      "name": "下營區圖書館",
-      "district": "下營區",
-      "address": "臺南市下營區文化街117號",
-      "lat": 23.2353,
-      "lon": 120.2645
-    },
-    {
-      "name": "六甲區圖書館",
-      "district": "六甲區",
-      "address": "臺南市六甲區中山路202號",
-      "lat": 23.2274,
-      "lon": 120.38
-    },
-    {
-      "name": "官田區圖書館",
-      "district": "官田區",
-      "address": "臺南市官田區隆田里中山路1段129號",
-      "lat": 23.1926,
-      "lon": 120.3141
-    },
-    {
-      "name": "大內區圖書館",
-      "district": "大內區",
-      "address": "臺南市大內區內庄1-45號",
-      "lat": 23.1189,
-      "lon": 120.3572
-    },
-    {
-      "name": "西港區圖書館",
-      "district": "西港區",
-      "address": "臺南市西港區中山路370號",
-      "lat": 23.1233,
-      "lon": 120.2033
-    },
-    {
-      "name": "七股區圖書館",
-      "district": "七股區",
-      "address": "臺南市七股區大埕里377-1號",
-      "lat": 23.1231,
-      "lon": 120.0992
-    },
-    {
-      "name": "將軍區圖書館",
-      "district": "將軍區",
-      "address": "臺南市將軍區忠嘉里忠興180-50號",
-      "lat": 23.2013,
-      "lon": 120.1607
-    },
-    {
-      "name": "北門區圖書館",
-      "district": "北門區",
-      "address": "臺南市北門區北門里港北49號",
-      "lat": 23.2704,
-      "lon": 120.1249
-    },
-    {
-      "name": "新市區圖書館",
-      "district": "新市區",
-      "address": "臺南市新市區民族路192號",
-      "lat": 23.0798,
-      "lon": 120.2958
-    },
-    {
-      "name": "安定區圖書館",
-      "district": "安定區",
-      "address": "臺南市安定區安加里262-8號",
-      "lat": 23.1145,
-      "lon": 120.2343
-    },
-    {
-      "name": "山上區圖書館",
-      "district": "山上區",
-      "address": "臺南市山上區南洲里53號",
-      "lat": 23.1016,
-      "lon": 120.3552
-    },
-    {
-      "name": "玉井區圖書館",
-      "district": "玉井區",
-      "address": "臺南市玉井區民族路218號",
-      "lat": 23.1236,
-      "lon": 120.4687
-    },
-    {
-      "name": "楠西區圖書館",
-      "district": "楠西區",
-      "address": "臺南市楠西區東勢里中正路309號",
-      "lat": 23.1725,
-      "lon": 120.4872
-    },
-    {
-      "name": "南化區圖書館",
-      "district": "南化區",
-      "address": "臺南市南化區南化里227-1號",
-      "lat": 23.0454,
-      "lon": 120.4799
-    },
-    {
-      "name": "左鎮區圖書館",
-      "district": "左鎮區",
-      "address": "臺南市左鎮區中正里176-19號",
-      "lat": 23.0262,
-      "lon": 120.4124
-    },
-    {
-      "name": "仁德區圖書館",
-      "district": "仁德區",
-      "address": "臺南市仁德區仁義里正義一街39號",
-      "lat": 22.9726,
-      "lon": 120.2531
-    },
-    {
-      "name": "歸仁區圖書館",
-      "district": "歸仁區",
-      "address": "臺南市歸仁區大德路127號",
-      "lat": 22.9718,
-      "lon": 120.2965
-    },
-    {
-      "name": "關廟區圖書館",
-      "district": "關廟區",
-      "address": "臺南市關廟區文化街1號",
-      "lat": 22.9601,
-      "lon": 120.324
-    },
-    {
-      "name": "龍崎區圖書館",
-      "district": "龍崎區",
-      "address": "臺南市龍崎區崎頂里新市子38號",
-      "lat": 22.9549,
-      "lon": 120.3869
-    },
-    {
-      "name": "永康區圖書館",
-      "district": "永康區",
-      "address": "臺南市永康區永大二路88號",
-      "lat": 23.0245,
-      "lon": 120.2377
-    },
-    {
-      "name": "安平區圖書館",
-      "district": "安平區",
-      "address": "臺南市安平區育平路320號",
-      "lat": 22.9858,
-      "lon": 120.1793
-    },
-    {
-      "name": "中西區圖書館",
-      "district": "中西區",
-      "address": "臺南市中西區中正路3號",
-      "lat": 22.9921,
-      "lon": 120.2038
-    },
-    {
-      "name": "安南區安南圖書館",
-      "district": "安南區",
-      "address": "臺南市安南區安中路二段308號",
-      "lat": 23.0479,
-      "lon": 120.1849
-    },
-    {
-      "name": "東區林森圖書館",
-      "district": "東區",
-      "address": "臺南市東區林森路二段46號",
-      "lat": 22.9868,
-      "lon": 120.2231
-    },
-    {
-      "name": "南區喜樹圖書館",
-      "district": "南區",
-      "address": "臺南市南區喜樹路179號",
-      "lat": 22.9401,
-      "lon": 120.1783
-    },
-    {
-      "name": "蕭壠兒童圖書館",
-      "district": "佳里區",
-      "address": "臺南市佳里區六安里130號",
-      "lat": 23.1727,
-      "lon": 120.177
-    },
-    {
-      "name": "安南區土城圖書館",
-      "district": "安南區",
-      "address": "臺南市安南區城安路85號",
-      "lat": 23.0586,
-      "lon": 120.1151
-    },
-    {
-      "name": "鹽埕圖書館",
-      "district": "南區",
-      "address": "臺南市南區新和東路51號",
-      "lat": 22.967,
-      "lon": 120.1876
-    },
-    {
-      "name": "許石音樂圖書館",
-      "district": "北區",
-      "address": "臺南市北區公園北路3號",
-      "lat": 23.004,
-      "lon": 120.2123
-    },
-    {
-      "name": "台江文化中心圖書館",
-      "district": "安南區",
-      "address": "臺南市安南區安吉路一段207號",
-      "lat": 23.0488,
-      "lon": 120.1526
-    }
+    {"name": "市圖總館（新總館）",    "district": "永康區", "address": "臺南市永康區康橋大道255號"},
+    {"name": "市圖總館（公園總館）",  "district": "北區",   "address": "臺南市北區公園北路3號"},
+    {"name": "許石音樂圖書館",       "district": "北區",   "address": "臺南市北區公園北路3號"},
+    {"name": "中西區圖書館",         "district": "中西區", "address": "臺南市中西區中正路3號（湯德章大道3號）"},
+    {"name": "林森圖書館",          "district": "東區",   "address": "臺南市東區林森路二段46號"},
+    {"name": "裕文圖書館",          "district": "東區",   "address": "臺南市東區裕信路237號"},
+    {"name": "喜樹圖書館",          "district": "南區",   "address": "臺南市南區喜樹路179號"},
+    {"name": "鹽埕圖書館",          "district": "南區",   "address": "臺南市南區新和東路51號"},
+    {"name": "安平區圖書館",         "district": "安平區", "address": "臺南市安平區育平路320號"},
+    {"name": "安南圖書館",          "district": "安南區", "address": "臺南市安南區安中路二段308號"},
+    {"name": "土城圖書館",          "district": "安南區", "address": "臺南市安南區城安路85號"},
+    {"name": "台江文化中心圖書館",    "district": "安南區", "address": "臺南市安南區安吉路一段207號"},
+    {"name": "永康區圖書館",         "district": "永康區", "address": "臺南市永康區永大二路88號"},
+    {"name": "仁德區圖書館",         "district": "仁德區", "address": "臺南市仁德區正義一街39號2F"},
+    {"name": "歸仁區圖書館",         "district": "歸仁區", "address": "臺南市歸仁區大德路127號"},
+    {"name": "關廟區圖書館",         "district": "關廟區", "address": "臺南市關廟區文化街1號"},
+    {"name": "龍崎區圖書館",         "district": "龍崎區", "address": "臺南市龍崎區崎頂里新市子38號"},
+    {"name": "新化區圖書館",         "district": "新化區", "address": "臺南市新化區中山路132號"},
+    {"name": "善化區圖書館",         "district": "善化區", "address": "臺南市善化區中山路377號3樓"},
+    {"name": "新市區圖書館",         "district": "新市區", "address": "臺南市新市區民族路192號"},
+    {"name": "安定區圖書館",         "district": "安定區", "address": "臺南市安定區安加里262-8號"},
+    {"name": "山上區圖書館",         "district": "山上區", "address": "臺南市山上區南洲里53號"},
+    {"name": "大內區圖書館",         "district": "大內區", "address": "臺南市大內區內庄1-45號"},
+    {"name": "玉井區圖書館",         "district": "玉井區", "address": "臺南市玉井區民族路218號"},
+    {"name": "楠西區圖書館",         "district": "楠西區", "address": "臺南市楠西區中正路309號"},
+    {"name": "南化區圖書館",         "district": "南化區", "address": "臺南市南化區南化里227-1號"},
+    {"name": "左鎮區圖書館",         "district": "左鎮區", "address": "臺南市左鎮區中正里176-19號"},
+    {"name": "官田區圖書館",         "district": "官田區", "address": "臺南市官田區中山路一段129號"},
+    {"name": "六甲區圖書館",         "district": "六甲區", "address": "臺南市六甲區中山路202號4樓"},
+    {"name": "下營區圖書館",         "district": "下營區", "address": "臺南市下營區文化街117號"},
+    {"name": "柳營區圖書館",         "district": "柳營區", "address": "臺南市柳營區柳營路二段59號"},
+    {"name": "新營文化中心圖書館",    "district": "新營區", "address": "臺南市新營區中正路23號"},
+    {"name": "新營區圖書館",         "district": "新營區", "address": "臺南市新營區太北里45-8號"},
+    {"name": "鹽水區圖書館",         "district": "鹽水區", "address": "臺南市鹽水區月津路14之1號"},
+    {"name": "白河區圖書館",         "district": "白河區", "address": "臺南市白河區新興路573號"},
+    {"name": "後壁區圖書館",         "district": "後壁區", "address": "臺南市後壁區後壁里131號"},
+    {"name": "東山區圖書館",         "district": "東山區", "address": "臺南市東山區東山里225-4號"},
+    {"name": "麻豆區圖書館",         "district": "麻豆區", "address": "臺南市麻豆區興國路11號3、4樓"},
+    {"name": "佳里區圖書館",         "district": "佳里區", "address": "臺南市佳里區安北路118號"},
+    {"name": "蕭壠兒童圖書館",       "district": "佳里區", "address": "臺南市佳里區六安里130號"},
+    {"name": "西港區圖書館",         "district": "西港區", "address": "臺南市西港區中山路370號"},
+    {"name": "七股區圖書館",         "district": "七股區", "address": "臺南市七股區大埕里377-1號"},
+    {"name": "將軍區圖書館",         "district": "將軍區", "address": "臺南市將軍區忠嘉里忠興180-50號"},
+    {"name": "學甲區圖書館",         "district": "學甲區", "address": "臺南市學甲區建國路38號"},
+    {"name": "北門區圖書館",         "district": "北門區", "address": "臺南市北門區北門里港北49號"}
   ]
 }

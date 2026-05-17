@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 1. **手動下載村里界圖**到 `data/raw/`（任一 `.shp` / `.geojson` 即可，notebook 會自動偵測過濾台南）。來源：[政府資料開放平台](https://data.gov.tw) 搜尋「村里界圖」或 [內政部 SEGIS](https://segis.moi.gov.tw/) 下載 WGS84 版本。
 2. 依序執行：
-   - `notebooks/01_fetch_data.ipynb` — 整理里界、抓 / 載入圖書館清單
+   - `notebooks/01_fetch_data.ipynb` — 整理里界、讀 `data/fallback/libraries_hardcoded.json` 並透過 **TGOS Lite** 把地址轉成經緯度（cache 在 `data/cache/geocode.csv`，第二次跑不打 API）
    - `notebooks/02_compute_times.ipynb` — 算最近圖書館時間
    - `notebooks/03_visualize.ipynb` — 產出 PNG + HTML
    - `notebooks/04_export.ipynb` — 產出 CSV + Excel
@@ -53,7 +53,13 @@ OSRM 進度檔在 `data/processed/osrm_progress.csv`。中斷後再執行 cell �
 pytest
 ```
 
-涵蓋 `lib/geo.py`、`lib/colors.py`、`lib/osrm.py` 的純函數邏輯（共 25 個測試）。Notebook 本身仰賴手動執行驗證。
+涵蓋 `lib/geo.py`、`lib/colors.py`、`lib/osrm.py`、`lib/geocoder.py` 的純函數邏輯（共 31 個測試）。Notebook 本身仰賴手動執行驗證。
+
+### 圖書館清單與地址 → 經緯度
+
+`data/fallback/libraries_hardcoded.json` 只記 `name`/`district`/`address`。經緯度由 `lib/geocoder.TGOSGeocoder` 從 [TGOS MAP API Lite](https://api.tgos.tw/TGOS_MAP_API/docs/site/web/LiteIntro)（免註冊的政府地址定位服務）查詢，結果 cache 在 `data/cache/geocode.csv`。
+
+要新增或修改圖書館：直接編 JSON 的 address，下次跑 notebook 01 會自動補座標。如果 TGOS 查不到某個地址（極少數，例如門牌沒收錄），會 fallback 到該區質心；要手動覆寫的話在 JSON entry 上加 `"lat": ..., "lon": ...` 即可。
 
 ## 未來擴展（Future Work）
 
