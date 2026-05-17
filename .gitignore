@@ -27,3 +27,6 @@ output/data/*
 
 # macOS
 .DS_Store
+
+# claude
+.claude/
