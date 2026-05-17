@@ -20,8 +20,8 @@ data/cache/*
 !data/cache/.gitkeep
 
 # Output (產出物不入 repo，可重算)
-output/maps/*
-output/data/*
+# output/maps/*
+# output/data/*
 !output/maps/.gitkeep
 !output/data/.gitkeep
 
