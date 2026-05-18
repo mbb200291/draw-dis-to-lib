@@ -75,6 +75,17 @@ DISTANCE = Scale(
     unit="km",
 )
 
+# Population uses heat-map convention: high value = hot color (red/purple).
+# Bins picked from Tainan distribution (median ~2300):
+# < 500 (sparse rural) → green; 8000+ (urban) → dark purple
+POPULATION = Scale(
+    name="population",
+    cuts=[500.0, 1500.0, 3000.0, 5000.0, 8000.0],
+    colors=PALETTE_HEX,
+    labels=["<500", "500–1.5k", "1.5–3k", "3–5k", "5–8k", "8k+"],
+    unit="人",
+)
+
 
 # === Backward-compat module-level API (driving time) ===
 

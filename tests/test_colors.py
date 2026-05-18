@@ -5,6 +5,7 @@ from lib.colors import (
     COLORS_HEX,
     DISTANCE,
     DRIVING,
+    POPULATION,
     WALKING,
     minutes_to_color,
     minutes_to_bin_label,
@@ -73,6 +74,23 @@ def test_distance_scale_buckets():
     assert DISTANCE.label(12) == "10–15"
     assert DISTANCE.label(17) == "15–20"
     assert DISTANCE.label(25) == "20+"
+
+
+def test_population_scale_buckets():
+    assert POPULATION.label(100) == "<500"
+    assert POPULATION.label(800) == "500–1.5k"
+    assert POPULATION.label(2000) == "1.5–3k"
+    assert POPULATION.label(4000) == "3–5k"
+    assert POPULATION.label(6500) == "5–8k"
+    assert POPULATION.label(12000) == "8k+"
+
+
+def test_population_palette_same_direction_as_other_scales():
+    # heat-map convention: low value = green, high value = dark purple
+    # (same direction as drive-time so all scales feel consistent)
+    from lib.colors import PALETTE_HEX
+    assert POPULATION.color(100) == PALETTE_HEX[0]    # low pop = green
+    assert POPULATION.color(12000) == PALETTE_HEX[-1] # high pop = dark purple
 
 
 def test_driving_backward_compat_matches_scale():
