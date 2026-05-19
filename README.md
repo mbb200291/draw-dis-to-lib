@@ -1,8 +1,8 @@
 # 台南市各里到最近市立圖書館行車時間地圖
 
-依據 [spec](docs/superpowers/specs/2026-05-16-tainan-library-drive-time-map-design.md) 製作。
+![Distance To Nearest Tainan Library](output/maps/tainan_library_drive_dist_grid500m_static.png "Distance To Nearest Tainan Library")
 
-繪製涵蓋台南市全部 37 個行政區的地圖，以「里」為單位上色，呈現該里質心開車到最近的台南市立圖書館（總館 + 各區分館）所需的行車時間。
+繪製涵蓋台南市全部 37 個行政區的地圖，以「里」或500平方公尺為單位，呈現該單位質心開車到最近的台南市立圖書館（總館 + 各區分館）所需的行車時間。
 
 ## 安裝
 
